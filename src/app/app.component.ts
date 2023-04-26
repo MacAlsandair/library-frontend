@@ -46,4 +46,17 @@ export class AppComponent {
     )
   }
 
+  public onUpdateBook(book: Book): void {
+    this.bookService.updateBook(book).subscribe({
+      next: (response: Book) => {
+        console.log(response);
+        this.getBooks();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    }
+    );
+  }
+
 }
