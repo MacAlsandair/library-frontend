@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Book } from './book';
+import { BookService } from './book.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'library-frontend';
+  public books!: Book[];
+
+  constructor (private bookService: BookService) {}
+
+  ngOnInit(): void {
+    this.getBooks();
+  }
+
+  public getBooks(): void {
+    this.bookService.getBooks().subscribe(
+      (response: Book[]) => {
+        this.books = response
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
 }
