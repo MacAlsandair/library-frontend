@@ -59,4 +59,16 @@ export class AppComponent {
     );
   }
 
+  public onDeleteBook(bookId: number): void {
+    this.bookService.deleteBook(bookId).subscribe({
+      next: (response: void) => {
+        console.log(response);
+        this.getBooks();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    });
+  }
+
 }
