@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Book } from './book';
 import { BookService } from './book.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,22 @@ export class AppComponent {
         alert(error.message);
       }
     );
+  }
+
+  public onAddBook(addForm: NgForm): void {
+    document.getElementById('add-book-form')?.click();
+    this.bookService.addBook(addForm.value).subscribe({
+      next: (response: Book) => {
+        console.log(response);
+        this.getBooks();
+        addForm.reset();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+      }
+    }
+    )
   }
 
 }
