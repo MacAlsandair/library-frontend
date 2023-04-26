@@ -77,8 +77,7 @@ export class AppComponent {
     for (const book of this.books) {
       if (book.author.toLowerCase().indexOf(key.toLowerCase()) !== -1
       || book.genre.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || book.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || book.yearOfPublication.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+      || book.name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
         result.push(book);
       }
     }
