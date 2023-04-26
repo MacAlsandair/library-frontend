@@ -12,6 +12,8 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   title = 'library-frontend';
   public books!: Book[];
+  public editBook!: Book | null;
+  public deleteBook!: Book | null;
 
   constructor (private bookService: BookService) {}
 
@@ -85,6 +87,27 @@ export class AppComponent {
     if (result.length === 0 || !key) {
       this.getBooks();
     }
+  }
+
+  public onOpenModal(book: Book | null, mode: string): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode = "add") {
+      button.setAttribute('data-target', '#addBookModal');
+    }
+    if (mode = "edit") {
+      this.editBook = book;
+      button.setAttribute('data-target', '#updateBookModal');
+    }
+    if (mode = "add") {
+      this.deleteBook = book;
+      button.setAttribute('data-target', '#deleteBookModal');
+    }
+    container?.appendChild(button);
+    button.click();
   }
 
 }
