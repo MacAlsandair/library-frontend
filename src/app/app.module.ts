@@ -11,14 +11,14 @@ import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MainNavbarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
-    HttpClientModule, NgbModule
+    HttpClientModule, NgbModule,
+    MainNavbarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

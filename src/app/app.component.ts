@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Book } from './book';
 import { BookService } from './book.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { MainNavbarComponent } from './main-navbar/main-navbar.component';
+
 
 @Component({
   selector: 'app-root',
