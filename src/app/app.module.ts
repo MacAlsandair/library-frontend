@@ -6,16 +6,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainNavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
-    HttpClientModule
+    HttpClientModule, NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
