@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
+import { BookCardComponent } from './book-card/book-card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainNavbarComponent } from './main-navbar/main-navbar.component';
     AppRoutingModule,
     FormsModule, 
     HttpClientModule, NgbModule,
-    MainNavbarComponent
+    MainNavbarComponent,
+    BookCardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
