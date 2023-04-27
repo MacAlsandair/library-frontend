@@ -40,11 +40,11 @@
 </div>
 
 <!-- Add book Modal -->
-<div class="modal fade" id="addbookModal" tabindex="-1" role="dialog" aria-labelledby="addbookModalLabel" aria-hidden="true">
+<div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="addBookModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
        <div class="modal-header">
-          <h5 class="modal-title" id="addbookModalLabel">Add book</h5>
+          <h5 class="modal-title" id="addBookModalLabel">Add book</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
@@ -78,11 +78,11 @@
   </div>
 
 <!-- Edit Modal -->
-<div class="modal fade" id="updatebookModal" tabindex="-1" role="dialog" aria-labelledby="bookEditModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateBookModal" tabindex="-1" role="dialog" aria-labelledby="bookEditModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
      <div class="modal-content">
         <div class="modal-header">
-           <h5 class="modal-title" id="updatebookModalLabel">Edit book </h5>
+           <h5 class="modal-title" id="updateBookModalLabel">Edit book </h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
            </button>
@@ -117,26 +117,26 @@
 </div>
 
 <!-- Delete Modal -->
-<div class="modal fade" id="deletebookModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-   <div class="modal-content">
-      <div class="modal-header">
-         <h5 class="modal-title" id="deleteModelLabel">Delete book</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-         </button>
-      </div>
-      <div class="modal-body">
-         <p>Are you sure you want to delete book {{deleteBook?.name}}?</p>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button (click)="onDeleteBook(deleteBook?.id!)" class="btn btn-danger" data-dismiss="modal">Yes</button>
-         </div>
-      </div>
-   </div>
-</div>
-</div>
-</div>
+<div class="modal fade" id="deleteBookModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="deleteModelLabel">Delete Book</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <p>Are you sure you want to delete employee {{deleteBook?.name}}?</p>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleteBook(deleteBook?.id!)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+           </div>
+        </div>
+     </div>
+  </div>
+  </div>
+  </div>
 
 <!-- Notification for no books -->
 <div *ngIf="books?.length == 0" class="col-lg-12 col-md-12 col-xl-12">

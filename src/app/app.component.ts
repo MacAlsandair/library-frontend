@@ -49,28 +49,27 @@ export class AppComponent {
   }
 
   public onUpdateBook(book: Book): void {
-    this.bookService.updateBook(book).subscribe({
-      next: (response: Book) => {
+    this.bookService.updateBook(book).subscribe(
+      (response: Book) => {
         console.log(response);
         this.getBooks();
       },
-      error: (error: HttpErrorResponse) => {
+      (error: HttpErrorResponse) => {
         alert(error.message);
       }
-    }
     );
   }
 
   public onDeleteBook(bookId: number): void {
-    this.bookService.deleteBook(bookId).subscribe({
-      next: (response: void) => {
+    this.bookService.deleteBook(bookId).subscribe(
+      (response: void) => {
         console.log(response);
         this.getBooks();
       },
-      error: (error: HttpErrorResponse) => {
+      (error: HttpErrorResponse) => {
         alert(error.message);
       }
-    });
+    );
   }
 
   public searchBooks(key: string): void {
@@ -95,19 +94,18 @@ export class AppComponent {
     button.type = 'button';
     button.style.display = 'none';
     button.setAttribute('data-toggle', 'modal');
-    if (mode = "add") {
+    if (mode === "add") {
       button.setAttribute('data-target', '#addBookModal');
     }
-    if (mode = "edit") {
+    if (mode === "edit") {
       this.editBook = book;
       button.setAttribute('data-target', '#updateBookModal');
     }
-    if (mode = "add") {
+    if (mode === "delete") {
       this.deleteBook = book;
       button.setAttribute('data-target', '#deleteBookModal');
     }
     container?.appendChild(button);
     button.click();
   }
-
 }
