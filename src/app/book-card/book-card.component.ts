@@ -23,7 +23,7 @@ export class BookCardComponent {
   public editBook!: Book | null;
   public deleteBook!: Book | null;
 
-  constructor (private bookService: BookService, private modalService: NgbModal) {}
+  constructor (public bookService: BookService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.getBooks();

@@ -1,19 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BookService } from '../book-card/book.service';
 import { Book } from '../book-card/book';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-book-edit-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './book-edit-modal.component.html',
   styleUrls: ['./book-edit-modal.component.scss']
 })
 export class BookEditModalComponent {
   @Input() editableBook!: Book;
-  bookService!: BookService;
+  @Input() bookService!: BookService;
 
   constructor (bookService: BookService) {}
 
