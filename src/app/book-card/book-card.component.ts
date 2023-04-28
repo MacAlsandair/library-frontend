@@ -4,7 +4,8 @@ import { Book } from './book';
 import { BookService } from './book.service';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BookDeleteModalComponent } from '../book-delete-modal/book-delete-modal.component';
 
 @Component({
   selector: 'app-book-card',
@@ -20,7 +21,7 @@ export class BookCardComponent {
   public editBook!: Book | null;
   public deleteBook!: Book | null;
 
-  constructor (private bookService: BookService) {}
+  constructor (private bookService: BookService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.getBooks();
@@ -37,9 +38,14 @@ export class BookCardComponent {
     );
   }
 
-  public openDeleteModal(book: Book): void {
-    this.onDeleteBook(book.id);
-  }
+  // public openDeleteModal(book: Book): void {
+  //   BookDeleteModalComponent.onDeleteBook(book.id);
+  // }
+  openDeleteModal(deleteBook: Book) {
+		const modalRef = this.modalService.open(BookDeleteModalComponent);
+		modalRef.componentInstance.deleteBook = deleteBook;
+    modalRef.componentInstance.parentComponent = this;
+	}
 
   public onAddBook(addForm: NgForm): void {
     document.getElementById('add-book-form')?.click();

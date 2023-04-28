@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BookService } from '../book-card/book.service';
 import { BookCardComponent } from '../book-card/book-card.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Book } from '../book-card/book';
 
 @Component({
   selector: 'app-book-delete-modal',
@@ -13,16 +14,25 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./book-delete-modal.component.scss']
 })
 export class BookDeleteModalComponent {
-	@Input() name: any;
+	@Input() deleteBook!: Book;
+  @Input() parentComponent!: BookCardComponent;
+  @Output() someEvent = new EventEmitter<string>();
+
+  callParent(): void {
+    this.someEvent.next("das");
+  }
+
 
 	constructor(public activeModal: NgbActiveModal,
     public bookService: BookService) {}
 
-  public onDeleteBook(bookId: number): void {
-    this.bookService.deleteBook(bookId).subscribe(
+  public onDeleteBook(): void {
+    this.activeModal.close('Close click')
+    this.bookService.deleteBook(this.deleteBook.id).subscribe(
       (response: void) => {
         console.log(response);
-        BookCardComponent.getBooks();
+        // BookCardComponent.getBooks();
+        this.parentComponent.getBooks();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
