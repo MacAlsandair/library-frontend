@@ -69,17 +69,7 @@ export class BookCardComponent {
     );
   }
 
-  public onDeleteBook(bookId: number): void {
-    this.bookService.deleteBook(bookId).subscribe(
-      (response: void) => {
-        console.log(response);
-        this.getBooks();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+
 
   public searchBooks(key: string): void {
     console.log(key);
