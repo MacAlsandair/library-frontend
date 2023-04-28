@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-book-delete-modal',
@@ -9,5 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./book-delete-modal.component.scss']
 })
 export class BookDeleteModalComponent {
+	@Input() name: any;
 
+	constructor(public activeModal: NgbActiveModal) {}
 }
