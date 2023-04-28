@@ -1,4 +1,4 @@
-import { Component, Input, NgModule } from '@angular/core';
+import { Component, EventEmitter, Input, NgModule, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BookService } from '../book-card/book.service';
 import { Book } from '../book-card/book';
@@ -15,14 +15,20 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class BookEditModalComponent {
   @Input() editableBook!: Book;
   @Input() bookService!: BookService;
+  @Output() someEvent = new EventEmitter<string>();
 
   constructor (bookService: BookService) {}
+
+  callParent(): void {
+    this.someEvent.next("Book has changed");
+  }
 
   public onUpdateBook(book: Book): void {
     this.bookService.updateBook(book).subscribe(
       (response: Book) => {
         console.log(response);
         // this.getBooks();
+        this.callParent();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
