@@ -6,13 +6,15 @@ import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookDeleteModalComponent } from '../book-delete-modal/book-delete-modal.component';
+import { BookEditModalComponent } from '../book-edit-modal/book-edit-modal.component';
 
 @Component({
   selector: 'app-book-card',
   standalone: true,
   imports: [CommonModule, 
     FormsModule, 
-    HttpClientModule, NgbModule,],
+    HttpClientModule, NgbModule,
+    BookEditModalComponent],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss']
 })
