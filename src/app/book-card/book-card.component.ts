@@ -37,6 +37,10 @@ export class BookCardComponent {
     );
   }
 
+  public openDeleteModal(book: Book): void {
+    this.onDeleteBook(book.id);
+  }
+
   public onAddBook(addForm: NgForm): void {
     document.getElementById('add-book-form')?.click();
     this.bookService.addBook(addForm.value).subscribe({
