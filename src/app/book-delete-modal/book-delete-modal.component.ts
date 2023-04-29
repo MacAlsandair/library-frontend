@@ -14,19 +14,17 @@ import { Book } from '../book-card/book';
   styleUrls: ['./book-delete-modal.component.scss']
 })
 export class BookDeleteModalComponent {
-	@Input() deleteBook!: Book;
-  @Input() parentComponent!: BookCardComponent;
-  @Output() someEvent = new EventEmitter<string>();
+	@Input() deletedBook!: Book;
+  @Output() deleteBookEvent = new EventEmitter<Book>();
 
-  callParent(): void {
-    this.someEvent.next("das");
-  }
+
 
 
 	constructor(public activeModal: NgbActiveModal,
     public bookService: BookService) {}
 
   public deleteBook(): void {
+    this.deleteBookEvent.emit(this.deletedBook);
     this.activeModal.close('Close click')
-
+  }
 }

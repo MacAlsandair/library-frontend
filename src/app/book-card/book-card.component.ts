@@ -47,7 +47,7 @@ export class BookCardComponent {
   openDeleteModal(deleteBook: Book) {
 		const modalRef = this.modalService.open(BookDeleteModalComponent);
 		modalRef.componentInstance.deleteBook = deleteBook;
-    modalRef.componentInstance.parentComponent = this;
+    modalRef.componentInstance.deleteBookEvent = this.onDeleteBook;
 	}
 
   public onAddBook(addForm: NgForm): void {
@@ -65,7 +65,15 @@ export class BookCardComponent {
   }
 
   public onDeleteBook (deleteBook: Book): void {
-    
+    this.bookService.deleteBook(deleteBook.id).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getBooks();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
   public onUpdateBook (updateBook: Book): void {
