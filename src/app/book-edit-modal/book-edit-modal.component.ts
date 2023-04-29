@@ -14,7 +14,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class BookEditModalComponent {
   @Input() editableBook!: Book;
-  //@Input() bookService!: BookService;
   @Output() updateBookEvent = new EventEmitter<Book>();
 
   constructor () {}
