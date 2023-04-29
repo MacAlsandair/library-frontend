@@ -26,7 +26,7 @@ export class BookDeleteModalComponent {
 	constructor(public activeModal: NgbActiveModal,
     public bookService: BookService) {}
 
-  public onDeleteBook(): void {
+  public deleteBook(): void {
     this.activeModal.close('Close click')
     this.bookService.deleteBook(this.deleteBook.id!).subscribe(
       (response: void) => {

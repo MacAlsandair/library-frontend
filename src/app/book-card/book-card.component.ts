@@ -64,6 +64,10 @@ export class BookCardComponent {
     )
   }
 
+  public onDeleteBook (deleteBook: Book): void {
+    
+  }
+
   public onUpdateBook (updateBook: Book): void {
     this.bookService.updateBook(updateBook).subscribe(
       (response: Book) => {
