@@ -1,1 +1,33 @@
-<p>book-add-modal works!</p>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit {{addedBook.name}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #editForm="ngForm">
+        <div class="mb-3">
+          <label for="name" class="col-form-label">Name</label>
+          <input type="text" ngModel="{{addedBook.name}}" class="form-control" id="name" name="name">
+        </div>
+        <input type="hidden" ngModel="{{addedBook.id}}" class="form-control" id="id" name="id">
+        <div class="mb-3">
+          <label for="author" class="col-form-label">Author</label>
+          <input type="text" ngModel="{{addedBook.author}}" class="form-control" id="author" name="author">
+        </div>
+        <div class="mb-3">
+          <label for="yearOfPublication" class="col-form-label">YearOfPublication</label>
+          <input type="text" ngModel="{{addedBook.yearOfPublication}}" class="form-control" id="yearOfPublication" name="yearOfPublication">
+        </div>
+        <div class="mb-3">
+          <label for="genre" class="col-form-label">Genre</label>
+          <input type="text" ngModel="{{addedBook.genre}}" class="form-control" id="genre" name="genre">
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button (click)="addBook(editForm.value)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>  
