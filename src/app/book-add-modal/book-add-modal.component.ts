@@ -22,8 +22,6 @@ export class BookAddModalComponent {
       genre: addForm.genre,
       author: addForm.author,
       yearOfPublication: addForm.yearOfPublication
-
-
     }
     addForm.reset();
     this.addBookEvent.emit(addedBook);

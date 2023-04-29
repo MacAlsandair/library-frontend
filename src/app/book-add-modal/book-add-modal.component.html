@@ -5,12 +5,12 @@
         <h1 class="modal-title fs-5" id="addBookModalLabel">Add new book</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form #addForm="ngForm">
+      <form #addForm="ngForm" (ngSubmit)="addBook(addForm.value)">
         <div class="mb-3">
           <label for="name" class="col-form-label">Name</label>
           <input type="text" ngModel class="form-control" id="name" name="name">
         </div>
-        <input type="hidden" ngModel class="form-control" id="id" name="id">
+        <!-- <input type="hidden" ngModel class="form-control" id="id" name="id"> -->
         <div class="mb-3">
           <label for="author" class="col-form-label">Author</label>
           <input type="text" ngModel class="form-control" id="author" name="author">
@@ -26,7 +26,7 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button (click)="addBook(addForm.value)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>
