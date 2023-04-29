@@ -28,15 +28,5 @@ export class BookDeleteModalComponent {
 
   public deleteBook(): void {
     this.activeModal.close('Close click')
-    this.bookService.deleteBook(this.deleteBook.id!).subscribe(
-      (response: void) => {
-        console.log(response);
-        // BookCardComponent.getBooks();
-        this.parentComponent.getBooks();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+
 }
