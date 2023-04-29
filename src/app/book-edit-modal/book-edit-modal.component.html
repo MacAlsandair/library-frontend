@@ -25,15 +25,6 @@
           <input type="text" ngModel="{{editableBook.genre}}" class="form-control" id="genre" name="genre">
         </div>
       </form>
-      <div class="modal-body">
-        <!-- <form>
-
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Author</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form> -->
-      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <button (click)="updateBook(editForm.value)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
