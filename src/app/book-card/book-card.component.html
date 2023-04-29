@@ -1,22 +1,24 @@
-<div class="modal fade" id="bookDeletModal" tabindex="-1" aria-labelledby="bookDeletModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="container" id="main-container">
-        <div class="row my-3">
-          <div *ngFor="let book of books" class="col=md-6 col-xl-3">
-            <div class="card text-center" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">{{book.name}}</h5>
-                <p class="card-text">{{book.author}}</p>
-                <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Edit book</button>
-                <app-book-edit-modal [editableBook]="book" (updateBookEvent)="onUpdateBook($event)"></app-book-edit-modal>
-                <!-- <button class="btn btn-outline-danger" (click)="openDeleteModal(book)">Delete book</button> -->
-                <app-book-delete-modal class="btn btn-outline-danger" [deletedBook]="book" (deleteBookEvent)="onDeleteBook($event)">Delete book</app-book-delete-modal>
-              </div>
-            </div>
-          </div>
+<div class="container" id="main-container">
+  <div class="row my-3">
+    <div *ngFor="let book of books" class="col=md-6 col-xl-3">
+      <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{book.name}}</h5>
+          <p class="card-text">{{book.author}}</p>
+          <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Edit book</button>
+          <app-book-edit-modal [editableBook]="book" (updateBookEvent)="onUpdateBook($event)"></app-book-edit-modal>
+          <!-- <button class="btn btn-outline-danger" (click)="openDeleteModal(book)">Delete book</button> -->
+          <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#deleteBookModal" data-bs-whatever="@getbootstrap">Delete book</button>
+          <app-book-delete-modal [deletedBook]="book" (deleteBookEvent)="onDeleteBook($event)"></app-book-delete-modal>
         </div>
       </div>
     </div>
   </div>
-</div>  
+</div>
+
+<div class="container">
+  <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#addBookModal" data-bs-whatever="@getbootstrap">Add new books</button>
+  <app-book-add-modal (addBookEvent)="onAddBook($event)"></app-book-add-modal>
+</div>
+
+
