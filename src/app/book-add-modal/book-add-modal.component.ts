@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Book } from '../book-card/book';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-book-add-modal',
@@ -11,12 +11,21 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./book-add-modal.component.scss']
 })
 export class BookAddModalComponent {
-  addedBook!: Book;
+  // addedBook!: Book;
   @Output() addBookEvent = new EventEmitter<Book>();
 
   constructor () {}
 
-  public addBook(book: Book): void {
-    this.addBookEvent.emit(book);
+  public addBook(addForm: NgForm): void {
+    const addedBook: Book = {
+      name: addForm.name,
+      genre: addForm.genre,
+      author: addForm.author,
+      yearOfPublication: addForm.yearOfPublication
+
+
+    }
+    addForm.reset();
+    this.addBookEvent.emit(addedBook);
   }
 }

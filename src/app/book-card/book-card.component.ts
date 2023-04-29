@@ -7,6 +7,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookDeleteModalComponent } from '../book-delete-modal/book-delete-modal.component';
 import { BookEditModalComponent } from '../book-edit-modal/book-edit-modal.component';
+import { BookAddModalComponent } from '../book-add-modal/book-add-modal.component';
 
 @Component({
   selector: 'app-book-card',
@@ -14,7 +15,7 @@ import { BookEditModalComponent } from '../book-edit-modal/book-edit-modal.compo
   imports: [CommonModule, 
     FormsModule, 
     HttpClientModule, NgbModule,
-    BookEditModalComponent],
+    BookEditModalComponent, BookAddModalComponent],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss']
 })
@@ -49,17 +50,15 @@ export class BookCardComponent {
     modalRef.componentInstance.parentComponent = this;
 	}
 
-  public onAddBook(addForm: NgForm): void {
+  public onAddBook(book: Book): void {
     document.getElementById('add-book-form')?.click();
-    this.bookService.addBook(addForm.value).subscribe({
+    this.bookService.addBook(book).subscribe({
       next: (response: Book) => {
         console.log(response);
         this.getBooks();
-        addForm.reset();
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);
-        addForm.reset();
       }
     }
     )

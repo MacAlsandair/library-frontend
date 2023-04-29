@@ -28,7 +28,7 @@ export class BookDeleteModalComponent {
 
   public onDeleteBook(): void {
     this.activeModal.close('Close click')
-    this.bookService.deleteBook(this.deleteBook.id).subscribe(
+    this.bookService.deleteBook(this.deleteBook.id!).subscribe(
       (response: void) => {
         console.log(response);
         // BookCardComponent.getBooks();

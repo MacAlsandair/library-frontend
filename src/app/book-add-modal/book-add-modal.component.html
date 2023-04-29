@@ -2,26 +2,26 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add new book</h1>
+        <h1 class="modal-title fs-5" id="addBookModalLabel">Add new book</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form #addForm="ngForm">
         <div class="mb-3">
           <label for="name" class="col-form-label">Name</label>
-          <input type="text" ngModel="{{addedBook.name}}" class="form-control" id="name" name="name">
+          <input type="text" ngModel class="form-control" id="name" name="name">
         </div>
-        <input type="hidden" ngModel="{{addedBook.id}}" class="form-control" id="id" name="id">
+        <input type="hidden" ngModel class="form-control" id="id" name="id">
         <div class="mb-3">
           <label for="author" class="col-form-label">Author</label>
-          <input type="text" ngModel="{{addedBook.author}}" class="form-control" id="author" name="author">
+          <input type="text" ngModel class="form-control" id="author" name="author">
         </div>
         <div class="mb-3">
           <label for="yearOfPublication" class="col-form-label">YearOfPublication</label>
-          <input type="text" ngModel="{{addedBook.yearOfPublication}}" class="form-control" id="yearOfPublication" name="yearOfPublication">
+          <input type="number" ngModel class="form-control" id="yearOfPublication" name="yearOfPublication">
         </div>
         <div class="mb-3">
           <label for="genre" class="col-form-label">Genre</label>
-          <input type="text" ngModel="{{addedBook.genre}}" class="form-control" id="genre" name="genre">
+          <input type="text" ngModel class="form-control" id="genre" name="genre">
         </div>
       </form>
       <div class="modal-footer">
