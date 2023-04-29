@@ -14,25 +14,17 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class BookEditModalComponent {
   @Input() editableBook!: Book;
-  @Input() bookService!: BookService;
-  @Output() someEvent = new EventEmitter<string>();
+  //@Input() bookService!: BookService;
+  @Output() updateBookEvent = new EventEmitter<Book>();
 
   constructor (bookService: BookService) {}
 
-  callParent(): void {
-    this.someEvent.next("Book has changed");
+  callParent(book: Book): void {
+    this.updateBookEvent.emit(book);
   }
 
   public onUpdateBook(book: Book): void {
-    this.bookService.updateBook(book).subscribe(
-      (response: Book) => {
-        console.log(response);
-        // this.getBooks();
-        this.callParent();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
+    this.callParent(book);
+
   }
 }
