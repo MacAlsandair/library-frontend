@@ -5,7 +5,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Add new book</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form #editForm="ngForm">
+      <form #addForm="ngForm">
         <div class="mb-3">
           <label for="name" class="col-form-label">Name</label>
           <input type="text" ngModel="{{addedBook.name}}" class="form-control" id="name" name="name">
@@ -26,7 +26,7 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button (click)="addBook(editForm.value)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        <button (click)="addBook(addForm.value)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>
