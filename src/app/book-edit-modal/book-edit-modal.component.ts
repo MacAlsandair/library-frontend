@@ -17,14 +17,9 @@ export class BookEditModalComponent {
   //@Input() bookService!: BookService;
   @Output() updateBookEvent = new EventEmitter<Book>();
 
-  constructor (bookService: BookService) {}
+  constructor () {}
 
-  callParent(book: Book): void {
+  public updateBook(book: Book): void {
     this.updateBookEvent.emit(book);
-  }
-
-  public onUpdateBook(book: Book): void {
-    this.callParent(book);
-
   }
 }

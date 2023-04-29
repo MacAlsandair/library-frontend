@@ -65,7 +65,7 @@ export class BookCardComponent {
     )
   }
 
-  public updateBook (updateBook: Book): void {
+  public onUpdateBook (updateBook: Book): void {
     this.bookService.updateBook(updateBook).subscribe(
       (response: Book) => {
         console.log(response);
