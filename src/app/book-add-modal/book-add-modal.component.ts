@@ -12,18 +12,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class BookAddModalComponent {
   // addedBook!: Book;
-  @Output() addBookEvent = new EventEmitter<Book>();
+  @Output() addBookEvent = new EventEmitter<NgForm>();
 
   constructor () {}
 
   public addBook(addForm: NgForm): void {
-    const addedBook: Book = {
-      name: addForm.name,
-      genre: addForm.genre,
-      author: addForm.author,
-      yearOfPublication: addForm.yearOfPublication
-    }
+    this.addBookEvent.emit(addForm);
     addForm.reset();
-    this.addBookEvent.emit(addedBook);
   }
 }
