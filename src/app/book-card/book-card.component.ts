@@ -15,7 +15,7 @@ import { BookAddModalComponent } from '../book-add-modal/book-add-modal.componen
   imports: [CommonModule, 
     FormsModule, 
     HttpClientModule, NgbModule,
-    BookEditModalComponent, BookAddModalComponent],
+    BookEditModalComponent, BookAddModalComponent, BookDeleteModalComponent],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss']
 })
@@ -41,9 +41,6 @@ export class BookCardComponent {
     );
   }
 
-  // public openDeleteModal(book: Book): void {
-  //   BookDeleteModalComponent.onDeleteBook(book.id);
-  // }
   openDeleteModal(deleteBook: Book) {
 		const modalRef = this.modalService.open(BookDeleteModalComponent);
 		modalRef.componentInstance.deleteBook = deleteBook;
