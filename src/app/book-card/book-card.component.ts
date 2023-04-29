@@ -50,9 +50,9 @@ export class BookCardComponent {
     modalRef.componentInstance.parentComponent = this;
 	}
 
-  public onAddBook(book: Book): void {
+  public onAddBook(addForm: NgForm): void {
     document.getElementById('add-book-form')?.click();
-    this.bookService.addBook(book).subscribe({
+    this.bookService.addBook(addForm.value).subscribe({
       next: (response: Book) => {
         console.log(response);
         this.getBooks();
