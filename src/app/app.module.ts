@@ -9,10 +9,12 @@ import { AppComponent } from './app.component';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 import { BookCardComponent } from './book-card/book-card.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
