@@ -16,10 +16,5 @@ export class AppComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService, private router: Router) {
   }
-  logout() {
-      this.authService.logout();
-
-      //this.router.navigateByUrl("/");
-  }
 
 }
