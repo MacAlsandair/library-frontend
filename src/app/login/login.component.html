@@ -1,37 +1,21 @@
 <h1>Login</h1>
 
-<!-- <form (ngSubmit)="login()" class="form-horizontal" #loginForm="ngForm">
-    <p>
-        <mat-form-field>
-            <mat-label>Username</mat-label>
-            <input matInput id="username" type="text" name="username" class="form-control" [(ngModel)]="username" required>
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input matInput id="password" type="password" name="password" class="form-control" [(ngModel)]="password" required>
-        </mat-form-field>
-    </p>
-    <p>
-        <button mat-raised-button type="submit" [disabled]="!loginForm.form.valid">Login</button>
-    </p>
-</form> -->
-
 <p>{{message}}</p>
 
 <form (ngSubmit)="login()" #loginForm="ngForm">
-    <!-- Email input -->
+    
     <div class="form-outline mb-4">
-      <input type="text" id="username" name="username" class="form-control" [(ngModel)]="username" required/>
-      <label id="password" type="password" name="password" class="form-control" [(ngModel)]="password" required>Username</label>
+        <input type="text" id="username" name="username" class="form-control" [(ngModel)]="username" required/>
+        <label for="username">Username</label>
     </div>
   
-    <!-- Password input -->
+  
     <div class="form-outline mb-4">
-      <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password" required/>
-      <label class="form-label" for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password" required/>
+        <label class="form-label" for="password">Password</label>
     </div>
+  
+  
   
     <!-- 2 column grid layout for inline styling -->
     <div class="row mb-4">

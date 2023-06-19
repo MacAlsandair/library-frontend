@@ -26,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AuthInterceptor } from './auth/auth.interceptor';
 //import {PersonEditComponent} from './person/edit/person-edit.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     MatSnackBarModule,
     LayoutModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    CommonModule
   ],
   providers: [NgbActiveModal,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
