@@ -17,6 +17,6 @@ export class MainNavbarComponent {
   logout() {
     this.authService.logout();
 
-    this.router.navigateByUrl("/");
+    //this.router.navigateByUrl("/books");
 }
 }
