@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./main-navbar.component.scss']
 })
 export class MainNavbarComponent {
-	active = 1;
+  active = 1;
 
   constructor(public authService: AuthService, private router: Router) {
   }
@@ -20,5 +20,15 @@ export class MainNavbarComponent {
     this.authService.logout();
 
     this.router.navigateByUrl("/login");
-}
+  }
+
+  login() {
+
+    this.router.navigateByUrl("/login");
+  }
+
+  signup() {
+
+    this.router.navigateByUrl("/signup");
+  }
 }
