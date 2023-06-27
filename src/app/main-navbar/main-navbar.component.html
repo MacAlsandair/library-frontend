@@ -31,7 +31,7 @@
           <a class="nav-link" (click)="logout()">Logout</a>
         </li>
         <li *ngIf="!authService.isLoggedIn()">
-          <a class="nav-link disabled" (click)="signup()">Sign up</a>
+          <a class="nav-link" (click)="signup()">Sign up</a>
         </li>
       </ul>
       <form class="d-flex" role="search" *ngIf="authService.isLoggedIn()">
