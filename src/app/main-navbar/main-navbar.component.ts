@@ -29,6 +29,6 @@ export class MainNavbarComponent {
 
   signup() {
 
-    this.router.navigateByUrl("/signup");
+    this.router.navigateByUrl("/registration");
   }
 }

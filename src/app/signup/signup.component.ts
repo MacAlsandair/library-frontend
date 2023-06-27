@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
+import { UserRegistrationDTO } from '../auth/user-registration-dto';
 
 @Component({
   selector: 'app-signup',
@@ -21,7 +22,13 @@ export class SignupComponent {
   public register(): void {
     sessionStorage.removeItem("app.token");
 
-    this
+    const userRegistrationDTO: UserRegistrationDTO = {
+      username: this.username,
+      password: this.password
+    };
+
+    this.authService.register(userRegistrationDTO);
+    this.login();
   }
 
   public login(): void {
