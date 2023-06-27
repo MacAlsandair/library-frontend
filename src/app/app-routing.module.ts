@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'books', pathMatch: 'full'},
-  {path: 'books', component: BookCardComponent, canActivate: [AuthGuard], data: {role: 'ROLE_USER'}},
-  {path: 'book/:id', component: BookEditModalComponent, canActivate: [AuthGuard], data: {role: 'ROLE_USER'}},
+  {path: 'books', component: BookCardComponent, canActivate: [AuthGuard], data: {role: 'USER'}},
+  {path: 'book/:id', component: BookEditModalComponent, canActivate: [AuthGuard], data: {role: 'USER'}},
   {path: 'login', component: LoginComponent},
   {path: '**', redirectTo: 'book-card'}
 ];
