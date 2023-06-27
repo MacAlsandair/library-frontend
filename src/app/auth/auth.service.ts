@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { UserRegistrationDTO } from './user-registration-dto';
 
 @Injectable({
     providedIn: 'root'
@@ -22,6 +23,15 @@ export class AuthService {
             responseType: 'text' as 'text',
         };
         return this.http.post("/api/auth", null, httpOptions);
+    }
+
+    register(userRegistrationDTO: UserRegistrationDTO): Observable<string> {
+        const httpOptions = {
+            headers: {
+            },
+            responseType: 'text' as 'text',
+        };
+        return this.http.post("/api/auth/register", userRegistrationDTO, httpOptions);
     }
 
     logout() {
