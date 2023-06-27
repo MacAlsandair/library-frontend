@@ -27,12 +27,14 @@ import { MatListModule } from '@angular/material/list';
 import { AuthInterceptor } from './auth/auth.interceptor';
 //import {PersonEditComponent} from './person/edit/person-edit.component';
 import { CommonModule } from '@angular/common';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
