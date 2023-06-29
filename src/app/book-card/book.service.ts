@@ -36,7 +36,7 @@ export class BookService {
     return this.http.delete<void>(`${this.apiServerUrl}/api/recommendations/remove/${bookId}`);
   }
 
-  public receivePersonalRecommendations(bookId: number): Observable<Book[]> {
+  public getPersonalRecommendations(): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.apiServerUrl}/api/recommendations/personal`);
   }
 
