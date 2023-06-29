@@ -1,12 +1,14 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { UserRegistrationDTO } from './user-registration-dto';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
+
 
     constructor(private http: HttpClient) {
     }
@@ -27,11 +29,14 @@ export class AuthService {
 
     register(userRegistrationDTO: UserRegistrationDTO): Observable<string> {
         const httpOptions = {
-            headers: {
-            },
-            responseType: 'text' as 'text',
-        };
-        return this.http.post("/api/auth/register", userRegistrationDTO, httpOptions);
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json'
+            }),
+            responseType: 'text' as 'json'
+          };
+          
+        console.log("I've sent something", userRegistrationDTO);
+        return this.http.post<string>("/api/auth/register", userRegistrationDTO, httpOptions);
     }
 
     logout() {
