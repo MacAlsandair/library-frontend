@@ -28,12 +28,16 @@ export class BookService {
     return this.http.delete<void>(`${this.apiServerUrl}/api/book/delete/${bookId}`);
   }
 
-  public addBookToFavorites(bookId: number): Observable<Book> {
-    return this.http.post<Book>(`${this.apiServerUrl}/api/recommendations/add/${bookId}`, null)
+  public addBookToFavorites(bookId: number): Observable<void> {
+    return this.http.post<void>(`${this.apiServerUrl}/api/recommendations/add/${bookId}`, null)
   }
 
   public deleteBookFromFavorites(bookId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/api/recommendations/remove/${bookId}`);
+  }
+
+  public receivePersonalRecommendations(bookId: number): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.apiServerUrl}/api/recommendations/personal`);
   }
 
 }
