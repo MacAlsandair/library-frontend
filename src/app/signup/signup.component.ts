@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { UserRegistrationDTO } from '../auth/user-registration-dto';
+import { catchError, switchMap, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -21,14 +22,21 @@ export class SignupComponent {
 
   public register(): void {
     sessionStorage.removeItem("app.token");
-
+  
     const userRegistrationDTO: UserRegistrationDTO = {
       username: this.username,
       password: this.password
     };
-
-    this.authService.register(userRegistrationDTO);
-    this.login();
+  
+    this.authService.register(userRegistrationDTO).pipe(
+      switchMap(() => this.authService.login(userRegistrationDTO.username, userRegistrationDTO.password)),
+      catchError(error => {
+        // Here we warn the user with an error message
+        window.alert('Registration failed: ' + error.message);
+        // We return the error back to terminate the process
+        return throwError(error);
+      })
+    ).subscribe();
   }
 
   public login(): void {
