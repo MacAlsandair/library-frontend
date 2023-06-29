@@ -27,4 +27,13 @@ export class BookService {
   public deleteBook(bookId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/api/book/delete/${bookId}`);
   }
+
+  public addBookToFavorites(bookId: number): Observable<Book> {
+    return this.http.post<Book>(`${this.apiServerUrl}/api/recommendations/add/${bookId}`, null)
+  }
+
+  public deleteBookFromFavorites(bookId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/api/recommendations/remove/${bookId}`);
+  }
+
 }
