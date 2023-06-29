@@ -28,13 +28,15 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 //import {PersonEditComponent} from './person/edit/person-edit.component';
 import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup/signup.component';
+import { RecommendedBooksComponent } from './recommended-books/recommended-books.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    RecommendedBooksComponent
   ],
   imports: [
     BrowserModule,
