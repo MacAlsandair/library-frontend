@@ -30,6 +30,10 @@ export class BookCardComponent {
     this.getBooks();
   }
 
+  public addToFavorites(bookId: number): void {
+    this.bookService.addBookToFavorites(bookId).subscribe();
+  }
+
   public getBooks(): void {
     this.bookService.getBooks().subscribe(
       (response: Book[]) => {
