@@ -33,6 +33,9 @@ export class BookCardComponent {
   public addToFavorites(bookId: number): void {
     this.bookService.addBookToFavorites(bookId).subscribe();
   }
+  public deleteFromFavorites(bookId: number): void {
+    this.bookService.deleteBookFromFavorites(bookId).subscribe();
+  }
 
   public getBooks(): void {
     this.bookService.getBooks().subscribe(
