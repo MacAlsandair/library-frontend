@@ -10,6 +10,7 @@
           <!-- <button class="btn btn-outline-danger" (click)="openDeleteModal(book)">Delete book</button> -->
           <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#deleteBookModal" data-bs-whatever="@getbootstrap">Delete book</button>
           <app-book-delete-modal [deletedBook]="book" (deleteBookEvent)="onDeleteBook($event)"></app-book-delete-modal>
+          <button type="button" class="btn btn-secondary mx-2" data-bs-toggle="modal" data-bs-target="#addToFavorites" (click)="addToFavorites(book.id)" type="submit" data-bs-whatever="@getbootstrap">Add to favorites</button>
         </div>
       </div>
     </div>
