@@ -24,8 +24,8 @@ export class CommentsService {
 
   addComment(bookId: number, commentText: string): Observable<Comment> {
     const url = `${this.commentsUrl}/${bookId}`;
-    return this.http.post<Comment>(url, commentText);
-  }
+    return this.http.post<Comment>(url, {commentText});
+  }  
 
   updateComment(id: number, comment: Comment): Observable<Comment> {
     const url = `${this.commentsUrl}/${id}`;

@@ -2,8 +2,7 @@
   <h2>Comments for {{book.name}}</h2>
 
   <!-- Form for adding new comments -->
-  <form (ngSubmit)="addComment(commentText.value); name.value=''; commentText.value=''">
-    <input #name type="text" placeholder="Enter your name" required>
+  <form (ngSubmit)="addComment(commentText.value); commentText.value=''">
     <input #commentText type="text" placeholder="Enter your comment" required>
     <button type="submit">Add Comment</button>
   </form>
@@ -14,7 +13,8 @@
 
       <!-- Display comment details -->
       <div>
-        <h3>{{ comment.name }} ({{ comment.timestamp }})</h3>
+        <!-- <h3>{{ comment.username }} ({{ comment.timestamp }})</h3> -->
+        <h3>({{ comment.timeStamp }})</h3>
         <p>{{ comment.commentText }}</p>
       </div>
 
