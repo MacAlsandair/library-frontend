@@ -1,7 +1,7 @@
 <div>
   <form (ngSubmit)="changePassword()">
-    <input [(ngModel)]="currentPassword" type="password" placeholder="Current Password">
-    <input [(ngModel)]="newPassword" type="password" placeholder="New Password">
+    <input [(ngModel)]="oldPassword" type="password" placeholder="Old Password" name="oldPassword">
+    <input [(ngModel)]="newPassword" type="password" placeholder="New Password" name="newPassword">
     <button type="submit">Change Password</button>
   </form>
 

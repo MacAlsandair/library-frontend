@@ -4,10 +4,10 @@ import { UserCabinetService } from './user-cabinet.service';
 @Component({
   selector: 'app-user-cabinet',
   templateUrl: './user-cabinet.component.html',
-  styleUrls: ['./user-cabinet.component.css']
+  styleUrls: ['./user-cabinet.component.scss']
 })
 export class UserCabinetComponent implements OnInit {
-  currentPassword: string = '';
+  oldPassword: string = '';
   newPassword: string = '';
   
   constructor(private userCabinetService: UserCabinetService) { }
@@ -16,7 +16,7 @@ export class UserCabinetComponent implements OnInit {
   }
 
   changePassword(): void {
-    this.userCabinetService.changePassword(this.currentPassword, this.newPassword)
+    this.userCabinetService.changePassword(this.oldPassword, this.newPassword)
       .subscribe(
         response => {
           console.log(response);
@@ -27,7 +27,7 @@ export class UserCabinetComponent implements OnInit {
           alert("Unable to change password.");
         }
       );
-    this.currentPassword = '';
+    this.oldPassword = '';
     this.newPassword = '';
   }
 
