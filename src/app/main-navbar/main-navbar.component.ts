@@ -31,4 +31,8 @@ export class MainNavbarComponent {
 
     this.router.navigateByUrl("/registration");
   }
+
+  navigateToUserCabinet() {
+    this.router.navigateByUrl("/user-cabinet");
+  }
 }
