@@ -29,6 +29,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup/signup.component';
 import { RecommendedBooksComponent } from './recommended-books/recommended-books.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { RecommendedBooksComponent } from './recommended-books/recommended-books
     AppComponent,
     LoginComponent,
     SignupComponent,
-    RecommendedBooksComponent
+    RecommendedBooksComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
