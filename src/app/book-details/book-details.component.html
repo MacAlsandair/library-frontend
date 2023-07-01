@@ -1,4 +1,8 @@
 <div *ngIf="book">
+  <img *ngIf="book.coverImageUrl!=null" 
+  [src]="book.coverImageUrl || 'default/image/url/'" 
+  alt="{{ book.name }} cover" 
+  class="book-cover">
   <h2>{{ book.name }}</h2>
   <p>{{ book.author }}</p>
   <p>{{ book.yearOfPublication }}</p>
