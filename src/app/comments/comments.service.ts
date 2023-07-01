@@ -1,33 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Comment } from './models/comment.model';
 import { Observable } from 'rxjs';
+import { Comment } from './comment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommentsService {
-  private commentsUrl = 'api/comments';  
+  private commentsUrl = 'api/comments';  // URL to web api, replace with your real API url
 
   constructor(private http: HttpClient) { }
 
-  getComments(bookId: number): Observable<Comment[]> {
-    const url = `${this.commentsUrl}?bookId=${bookId}`;
+  getCommentsByBook(bookId: number): Observable<Comment[]> {
+    const url = `${this.commentsUrl}/book/${bookId}`;
     return this.http.get<Comment[]>(url);
   }
 
-  addComment(comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(this.commentsUrl, comment);
+  getCommentsByAuthor(authorId: number): Observable<Comment[]> {
+    const url = `${this.commentsUrl}/author/${authorId}`;
+    return this.http.get<Comment[]>(url);
   }
 
-  updateComment(comment: Comment): Observable<any> {
-    return this.http.put(this.commentsUrl, comment);
+  addComment(bookId: number, commentText: string): Observable<Comment> {
+    const url = `${this.commentsUrl}/${bookId}`;
+    return this.http.post<Comment>(url, commentText);
   }
 
-  deleteComment(comment: Comment | number): Observable<Comment> {
-    const id = typeof comment === 'number' ? comment : comment.id;
+  updateComment(id: number, comment: Comment): Observable<Comment> {
     const url = `${this.commentsUrl}/${id}`;
+    return this.http.put<Comment>(url, comment);
+  }
 
-    return this.http.delete<Comment>(url);
+  deleteComment(id: number): Observable<any> {
+    const url = `${this.commentsUrl}/${id}`;
+    return this.http.delete(url);
   }
 }
