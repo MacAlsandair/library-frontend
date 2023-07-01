@@ -12,6 +12,8 @@ export class CommentsComponent implements OnInit {
   comments: Comment[] = [];
   newCommentContent!: string;
   @Input() book!: Book;
+  editingCommentId: number | any = null; 
+
 
   constructor(private commentService: CommentsService) { }
 
