@@ -10,15 +10,15 @@ export class UserCabinetService {
 
   constructor(private http: HttpClient) { }
 
-  changePassword(currentPassword: string, newPassword: string): Observable<any> {
-    return this.http.post<any>(`${this.API_URL}/change-password`, {
-      currentPassword,
+  changePassword(oldPassword: string, newPassword: string): Observable<any> {
+    return this.http.post<any>(`${this.API_URL}/changePassword`, {
+      oldPassword,
       newPassword
     });
   }
 
   deleteAccount(): Observable<any> {
     // Again, replace endpoint URL with the one from your API
-    return this.http.delete<any>(`${this.API_URL}/account`);
+    return this.http.delete<any>(`${this.API_URL}/delete`);
   }
 }
