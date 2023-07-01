@@ -40,4 +40,9 @@ export class BookService {
     return this.http.get<Book[]>(`${this.apiServerUrl}/api/recommendations/personal`);
   }
 
+  public getBookById(bookId: number): Observable<Book> {
+    return this.http.get<Book>(`${this.apiServerUrl}/api/book/find/${bookId}`);
+  }
+  
+
 }
