@@ -1,10 +1,37 @@
 <div>
-  <input [(ngModel)]="newCommentContent" placeholder="write a comment...">
-  <button (click)="addComment(newCommentContent)">Add Comment</button>
-</div>
-<div *ngFor="let comment of comments">
-  <p>{{ comment.commentText }}</p>
-  <button (click)="deleteComment(comment)">Delete</button>
-  <input [(ngModel)]="comment.commentText">
-  <button (click)="updateComment(comment)">Update</button>
+  <h2>Comments for {{book.name}}</h2>
+
+  <!-- Form for adding new comments -->
+  <form (ngSubmit)="addComment(commentText.value); name.value=''; commentText.value=''">
+    <input #name type="text" placeholder="Enter your name" required>
+    <input #commentText type="text" placeholder="Enter your comment" required>
+    <button type="submit">Add Comment</button>
+  </form>
+
+  <!-- List of comments -->
+  <ul>
+    <li *ngFor="let comment of comments">
+
+      <!-- Display comment details -->
+      <div>
+        <h3>{{ comment.name }} ({{ comment.timestamp }})</h3>
+        <p>{{ comment.commentText }}</p>
+      </div>
+
+      <!-- Form for updating comment -->
+      <form *ngIf="comment.id === editingCommentId" 
+            (ngSubmit)="updateComment(comment); editingCommentId = null">
+        <input [(ngModel)]="comment.commentText" required>
+        <button type="submit">Save</button>
+        <button type="button" (click)="editingCommentId = null">Cancel</button>
+      </form>
+
+      <!-- Buttons for editing and deleting comment -->
+      <div *ngIf="comment.id !== editingCommentId">
+        <button (click)="editingCommentId = comment.id">Edit</button>
+        <button (click)="deleteComment(comment)">Delete</button>
+      </div>
+      
+    </li>
+  </ul>
 </div>
