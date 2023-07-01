@@ -8,6 +8,7 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookDeleteModalComponent } from '../book-delete-modal/book-delete-modal.component';
 import { BookEditModalComponent } from '../book-edit-modal/book-edit-modal.component';
 import { BookAddModalComponent } from '../book-add-modal/book-add-modal.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-book-card',
@@ -15,7 +16,7 @@ import { BookAddModalComponent } from '../book-add-modal/book-add-modal.componen
   imports: [CommonModule, 
     FormsModule, 
     HttpClientModule, NgbModule,
-    BookEditModalComponent, BookAddModalComponent, BookDeleteModalComponent],
+    BookEditModalComponent, BookAddModalComponent, BookDeleteModalComponent, RouterModule],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss']
 })
