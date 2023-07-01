@@ -9,4 +9,6 @@
   <p>{{ book.genre }}</p>
   <button (click)="addToFavorites()">Add to Favorites</button>
   <button (click)="removeFromFavorites()">Remove from Favorites</button>
+
+  <app-comments [book]="book"></app-comments>
 </div>
