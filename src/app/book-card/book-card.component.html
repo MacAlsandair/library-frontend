@@ -12,6 +12,7 @@
           <app-book-delete-modal [deletedBook]="book" (deleteBookEvent)="onDeleteBook($event)"></app-book-delete-modal>
           <button type="button" class="btn btn-secondary mx-2" data-bs-toggle="modal" data-bs-target="#addToFavorites" (click)="addToFavorites(book.id)" type="submit" data-bs-whatever="@getbootstrap">Add to favorites</button>
           <button type="button" class="btn btn-secondary mx-2" data-bs-toggle="modal" data-bs-target="#addToFavorites" (click)="deleteFromFavorites(book.id)" type="submit" data-bs-whatever="@getbootstrap">Delete from favorites</button>
+          <button type="button" class="btn btn-primary mx-2" [routerLink]="['/book-details', book.id]">View More Details</button>
         </div>
       </div>
     </div>

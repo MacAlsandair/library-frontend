@@ -6,6 +6,7 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { BookEditModalComponent } from './book-edit-modal/book-edit-modal.component';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'books', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'book/:id', component: BookEditModalComponent, canActivate: [AuthGuard], data: {role: 'USER'}},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: SignupComponent},
-  {path: '**', redirectTo: 'book-card'}
+  {path: '**', redirectTo: 'book-card'},
+  { path: 'book-details/:id', component: BookDetailsComponent }
 ];
 
 @NgModule({
