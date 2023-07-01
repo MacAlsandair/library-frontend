@@ -1,5 +1,7 @@
 export interface Comment {
   id: number;
-  content: string;
   bookId: number;
+  name: string; 
+  commentText: string; 
+  timestamp: string; 
 }
