@@ -1,0 +1,9 @@
+<div>
+  <form (ngSubmit)="changePassword()">
+    <input [(ngModel)]="currentPassword" type="password" placeholder="Current Password">
+    <input [(ngModel)]="newPassword" type="password" placeholder="New Password">
+    <button type="submit">Change Password</button>
+  </form>
+
+  <button (click)="deleteUserAccount()">Delete Account</button>
+</div>

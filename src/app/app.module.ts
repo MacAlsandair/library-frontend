@@ -32,6 +32,7 @@ import { RecommendedBooksComponent } from './recommended-books/recommended-books
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { RouterModule } from '@angular/router';
 import { CommentsComponent } from './comments/comments.component';
+import { UserCabinetComponent } from './user-cabinet/user-cabinet.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { CommentsComponent } from './comments/comments.component';
     SignupComponent,
     RecommendedBooksComponent,
     BookDetailsComponent,
-    CommentsComponent
+    CommentsComponent,
+    UserCabinetComponent
   ],
   imports: [
     BrowserModule,
