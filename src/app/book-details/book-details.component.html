@@ -1,0 +1,8 @@
+<div *ngIf="book">
+  <h2>{{ book.name }}</h2>
+  <p>{{ book.author }}</p>
+  <p>{{ book.yearOfPublication }}</p>
+  <p>{{ book.genre }}</p>
+  <button (click)="addToFavorites()">Add to Favorites</button>
+  <button (click)="removeFromFavorites()">Remove from Favorites</button>
+</div>
