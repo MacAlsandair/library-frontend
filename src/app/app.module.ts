@@ -31,6 +31,7 @@ import { SignupComponent } from './signup/signup.component';
 import { RecommendedBooksComponent } from './recommended-books/recommended-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { RouterModule } from '@angular/router';
+import { CommentsComponent } from './comments/comments.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     SignupComponent,
     RecommendedBooksComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
