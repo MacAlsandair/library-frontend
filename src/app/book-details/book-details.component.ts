@@ -4,6 +4,7 @@ import { Book } from '../book-card/book';
 import { BookService } from '../book-card/book.service';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { CommentsComponent } from '../comments/comments.component';
 
 @Component({
   selector: 'app-book-details',
@@ -17,7 +18,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private bookService: BookService,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getBook();
@@ -44,5 +45,4 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
       console.error('Book id is not available');
     }
   }
-  
 }
