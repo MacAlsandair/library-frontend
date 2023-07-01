@@ -6,7 +6,7 @@ import { Comment } from './comment';
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.css']
+  styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
   comments: Comment[] = [];
