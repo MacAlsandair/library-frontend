@@ -11,10 +11,10 @@ export class UserCabinetService {
   constructor(private http: HttpClient) { }
 
   changePassword(oldPassword: string, newPassword: string): Observable<any> {
-    return this.http.post<any>(`${this.API_URL}/changePassword`, {
+    return this.http.post(`${this.API_URL}/changePassword`, {
       oldPassword,
       newPassword
-    });
+    }, {responseType: 'text'});
   }
 
   deleteAccount(): Observable<any> {
