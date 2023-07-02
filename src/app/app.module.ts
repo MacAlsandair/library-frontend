@@ -33,7 +33,6 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { RouterModule } from '@angular/router';
 import { CommentsComponent } from './comments/comments.component';
 import { UserCabinetComponent } from './user-cabinet/user-cabinet.component';
-import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -44,8 +43,7 @@ import { SearchComponent } from './search/search.component';
     RecommendedBooksComponent,
     BookDetailsComponent,
     CommentsComponent,
-    UserCabinetComponent,
-    SearchComponent
+    UserCabinetComponent
   ],
   imports: [
     BrowserModule,

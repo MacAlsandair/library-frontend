@@ -9,7 +9,6 @@ import { BookDeleteModalComponent } from '../book-delete-modal/book-delete-modal
 import { BookEditModalComponent } from '../book-edit-modal/book-edit-modal.component';
 import { BookAddModalComponent } from '../book-add-modal/book-add-modal.component';
 import { RouterModule } from '@angular/router';
-import { SearchService } from '../search/search.service';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
