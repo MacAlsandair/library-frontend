@@ -43,6 +43,11 @@ export class BookService {
   public getBookById(bookId: number): Observable<Book> {
     return this.http.get<Book>(`${this.apiServerUrl}/api/book/find/${bookId}`);
   }
+
+  // public searchBooks(text: string): Observable<Book[]> {
+  //   return this.http.get<Book[]>(`${this.apiServerUrl}/api/book/search/${text}`);
+  // }
+
   
 
 }

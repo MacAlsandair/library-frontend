@@ -9,6 +9,7 @@ import { BookDeleteModalComponent } from '../book-delete-modal/book-delete-modal
 import { BookEditModalComponent } from '../book-edit-modal/book-edit-modal.component';
 import { BookAddModalComponent } from '../book-add-modal/book-add-modal.component';
 import { RouterModule } from '@angular/router';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-book-card',
@@ -29,6 +30,18 @@ export class BookCardComponent {
 
   ngOnInit(): void {
     this.getBooks();
+    // this.searchService.searchText$.subscribe(
+    //   text => {
+    //     this.bookService.searchBooks(text).subscribe(
+    //       (response: Book[]) => {
+    //         this.books = response;
+    //       },
+    //       (error: HttpErrorResponse) => {
+    //         console.warn(error);
+    //       },
+    //     );
+    //   }
+    // );
   }
 
   public addToFavorites(bookId: number): void {

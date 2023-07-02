@@ -27,10 +27,11 @@ export class CommentsService {
     return this.http.post<Comment>(url, {commentText});
   }  
 
-  updateComment(id: number, comment: Comment): Observable<Comment> {
+  updateComment(id: number, updatedCommentText: string): Observable<Comment> {
     const url = `${this.commentsUrl}/${id}`;
-    return this.http.put<Comment>(url, comment);
+    return this.http.put<Comment>(url, {commentText: updatedCommentText});
   }
+  
 
   deleteComment(id: number): Observable<any> {
     const url = `${this.commentsUrl}/${id}`;
