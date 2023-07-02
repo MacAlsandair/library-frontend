@@ -44,9 +44,9 @@ export class BookService {
     return this.http.get<Book>(`${this.apiServerUrl}/api/book/find/${bookId}`);
   }
 
-  // public searchBooks(text: string): Observable<Book[]> {
-  //   return this.http.get<Book[]>(`${this.apiServerUrl}/api/book/search/${text}`);
-  // }
+  public searchBooks(text: string): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.apiServerUrl}/api/book/search/${text}`);
+  }
 
   
 

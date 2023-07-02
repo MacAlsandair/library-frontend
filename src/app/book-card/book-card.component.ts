@@ -9,7 +9,8 @@ import { BookDeleteModalComponent } from '../book-delete-modal/book-delete-modal
 import { BookEditModalComponent } from '../book-edit-modal/book-edit-modal.component';
 import { BookAddModalComponent } from '../book-add-modal/book-add-modal.component';
 import { RouterModule } from '@angular/router';
-import { SearchService } from '../search.service';
+import { SearchService } from '../search/search.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-book-card',
@@ -25,8 +26,9 @@ export class BookCardComponent {
   public books!: Book[];
   public editBook!: Book | null;
   public deleteBook!: Book | null;
+  public searchText!: string;
 
-  constructor (public bookService: BookService, private modalService: NgbModal) {}
+  constructor (public bookService: BookService, private modalService: NgbModal, public authService: AuthService) {}
 
   ngOnInit(): void {
     this.getBooks();
@@ -42,6 +44,22 @@ export class BookCardComponent {
     //     );
     //   }
     // );
+  }
+
+  public search(text: string) {
+    if (this.searchText == "") {
+      this.getBooks();
+    }
+    else {
+      this.bookService.searchBooks(text).subscribe(
+        (response: Book[]) => {
+          this.books = response;
+        },
+        (error: HttpErrorResponse) => {
+          console.warn(error);
+        },
+      );
+    }
   }
 
   public addToFavorites(bookId: number): void {
@@ -110,21 +128,21 @@ export class BookCardComponent {
 
 
 
-  public searchBooks(key: string): void {
-    console.log(key);
-    const result: Book[] = [];
-    for (const book of this.books) {
-      if (book.author.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || book.genre.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || book.name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
-        result.push(book);
-      }
-    }
-    this.books = result;
-    if (result.length === 0 || !key) {
-      this.getBooks();
-    }
-  }
+  // public searchBooks(key: string): void {
+  //   console.log(key);
+  //   const result: Book[] = [];
+  //   for (const book of this.books) {
+  //     if (book.author.toLowerCase().indexOf(key.toLowerCase()) !== -1
+  //     || book.genre.toLowerCase().indexOf(key.toLowerCase()) !== -1
+  //     || book.name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+  //       result.push(book);
+  //     }
+  //   }
+  //   this.books = result;
+  //   if (result.length === 0 || !key) {
+  //     this.getBooks();
+  //   }
+  // }
 
   public onOpenModal(book: Book | null, mode: string): void {
     const container = document.getElementById('main-container');
