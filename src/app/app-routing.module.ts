@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { UserCabinetComponent } from './user-cabinet/user-cabinet.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'books', pathMatch: 'full'},
@@ -20,6 +21,11 @@ const routes: Routes = [
   { 
     path: 'user-cabinet', 
     component: UserCabinetComponent,
+    canActivate: [AuthGuard], data: {role: 'USER'}
+  },
+  { 
+    path: 'search', 
+    component: SearchComponent,
     canActivate: [AuthGuard], data: {role: 'USER'}
   }
 ];
