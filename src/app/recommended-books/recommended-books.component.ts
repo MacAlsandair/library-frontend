@@ -3,6 +3,7 @@ import { Book } from '../book-card/book';
 import { BookService } from '../book-card/book.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-recommended-books',
@@ -12,7 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class RecommendedBooksComponent {
   public books!: Book[];
 
-  constructor (public bookService: BookService, private modalService: NgbModal) {}
+  constructor (public bookService: BookService, private modalService: NgbModal, public authService: AuthService) {}
 
   ngOnInit(): void {
     this.getBooks();
