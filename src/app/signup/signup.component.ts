@@ -20,6 +20,39 @@ export class SignupComponent {
   constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar) {
   }
 
+  onRegister() {
+    this.authService.register({username: this.username, password: this.password}).subscribe(
+      () => {
+        // this.authService.login(this.username, this.password).subscribe(
+        //   () => {
+        //     this.router.navigate(['/']);
+        //   },
+        //   (error) => {
+        //     console.error('Login failed', error);
+        //   }
+        // );
+        sessionStorage.removeItem("app.token");
+
+        this.authService.login(this.username, this.password)
+            .subscribe({
+                next: (token) => {
+                    sessionStorage.setItem("app.token", token);
+  
+                    const decodedToken = jwtDecode<JwtPayload>(token);
+                    // @ts-ignore
+                    sessionStorage.setItem("app.roles",  decodedToken.scope);
+  
+                    this.router.navigateByUrl("/books");
+                },
+                error: (error) => this.snackBar.open(`Login failed: ${error.status}`, "OK")
+            });
+      },
+      (error) => {
+        console.error('Registration failed', error);
+      }
+    );
+  }
+
   public register(): void {
     sessionStorage.removeItem("app.token");
   
