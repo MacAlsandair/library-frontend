@@ -13,6 +13,7 @@ export class CommentsComponent implements OnInit {
   newCommentContent!: string;
   @Input() book!: Book;
   editingCommentId: number | any = null; 
+  updatedCommentText!: string;
 
 
   constructor(private commentService: CommentsService) { }
@@ -34,8 +35,8 @@ export class CommentsComponent implements OnInit {
       });
   }
 
-  updateComment(comment: Comment): void {
-    this.commentService.updateComment(comment.id, comment)
+  updateComment(id: number, updatedCommentText: string): void {
+    this.commentService.updateComment(id, updatedCommentText)
       .subscribe(() => this.getCommentsByBook());
   }
 

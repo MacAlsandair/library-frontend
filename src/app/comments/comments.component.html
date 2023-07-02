@@ -20,8 +20,8 @@
 
       <!-- Form for updating comment -->
       <form *ngIf="comment.id === editingCommentId" 
-            (ngSubmit)="updateComment(comment); editingCommentId = null">
-        <input [(ngModel)]="comment.commentText" required>
+            (ngSubmit)="updateComment(comment.id, updatedCommentText); editingCommentId = null">
+        <input [(ngModel)]="comment.commentText" name="updatedCommentText" required>
         <button type="submit">Save</button>
         <button type="button" (click)="editingCommentId = null">Cancel</button>
       </form>
