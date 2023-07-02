@@ -61,4 +61,8 @@ export class AuthService {
         }
         return false;
     }
+
+    postRegistrationLogin(username: string, password: string) {
+        return this.login(username, password);
+    }
 }
