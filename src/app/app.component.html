@@ -8,4 +8,4 @@
     <router-outlet></router-outlet>
 </main>
 
-<app-recommended-books></app-recommended-books>
+<app-recommended-books *ngIf="authService.isLoggedIn()"></app-recommended-books>
