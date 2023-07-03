@@ -34,8 +34,6 @@ export class AuthService {
             }),
             responseType: 'text' as 'json'
           };
-          
-        console.log("I've sent something", userRegistrationDTO);
         return this.http.post<string>("/api/auth/register", userRegistrationDTO, httpOptions);
     }
 
