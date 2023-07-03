@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCabinetService } from './user-cabinet.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-cabinet',
@@ -10,7 +11,7 @@ export class UserCabinetComponent implements OnInit {
   oldPassword: string = '';
   newPassword: string = '';
   
-  constructor(private userCabinetService: UserCabinetService) { }
+  constructor(private userCabinetService: UserCabinetService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,8 +39,7 @@ export class UserCabinetComponent implements OnInit {
           console.log(response);
           alert("Account deleted successfully!");
           sessionStorage.removeItem("app.token");
-          // here you may want to redirect the user to the login page or home page
-          // using Router service
+          this.router.navigateByUrl("/registration");
         },
         error => {
           console.error(error);
