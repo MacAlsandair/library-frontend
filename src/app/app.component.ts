@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'library-frontend';
 
 
-  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService, private router: Router) {
+  constructor(private breakpointObserver: BreakpointObserver, public authService: AuthService, private router: Router) {
   }
 
 }
