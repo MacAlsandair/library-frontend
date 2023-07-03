@@ -14,11 +14,10 @@ export class UserCabinetService {
     return this.http.post(`${this.API_URL}/changePassword`, {
       oldPassword,
       newPassword
-    }, {responseType: 'text'});
+    }, { responseType: 'text' });
   }
 
   deleteAccount(): Observable<any> {
-    // Again, replace endpoint URL with the one from your API
-    return this.http.delete<any>(`${this.API_URL}/delete`);
+    return this.http.delete(`${this.API_URL}/delete`, { responseType: 'text' });
   }
 }
