@@ -37,6 +37,7 @@ export class UserCabinetComponent implements OnInit {
         response => {
           console.log(response);
           alert("Account deleted successfully!");
+          sessionStorage.removeItem("app.token");
           // here you may want to redirect the user to the login page or home page
           // using Router service
         },
