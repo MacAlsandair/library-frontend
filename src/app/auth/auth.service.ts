@@ -44,21 +44,19 @@ export class AuthService {
 
     isUserInRole(roleFromRoute: string) {
         const roles = sessionStorage.getItem("app.roles");
-
-        if (roles!.includes(",")) {
-            if (roles === roleFromRoute) {
-                return true;
+      
+        if (roles) {
+          const roleArray = roles.split(",");
+          for (let role of roleArray) {
+            if (role.trim() === roleFromRoute) {
+              return true;
             }
-        } else {
-            const roleArray = roles!.split(",");
-            for (let role of roleArray) {
-                if (role === roleFromRoute) {
-                    return true;
-                }
-            }
+          }
         }
+      
         return false;
-    }
+      }
+      
 
     postRegistrationLogin(username: string, password: string) {
         return this.login(username, password);
