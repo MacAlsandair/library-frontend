@@ -1,4 +1,4 @@
-<div *ngIf="book">
+<!-- <div *ngIf="book">
   <img *ngIf="book.coverImageUrl!=null" 
   [src]="book.coverImageUrl || 'default/image/url/'" 
   alt="{{ book.name }} cover" 
@@ -11,4 +11,26 @@
   <button (click)="removeFromFavorites()">Remove from Favorites</button>
 
   <app-comments [book]="book"></app-comments>
+</div> -->
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <div *ngIf="book" class="d-flex align-items-center">
+        <img *ngIf="book.coverImageUrl != null" [src]="book.coverImageUrl" alt="{{ book.name }} cover" class="book-cover">
+        <div>
+          <h2 class="card-title">{{ book.name }}</h2>
+          <p class="card-text">{{ book.author }}</p>
+          <p class="card-text">{{ book.yearOfPublication }}</p>
+          <p class="card-text">{{ book.genre }}</p>
+        </div>
+      </div>
+      <div class="d-grid gap-2 mt-3">
+        <button (click)="addToFavorites()" class="btn btn-primary">Add to Favorites</button>
+        <button (click)="removeFromFavorites()" class="btn btn-secondary">Remove from Favorites</button>
+      </div>
+      
+      <app-comments [book]="book"></app-comments>
+    </div>
+  </div>
 </div>
