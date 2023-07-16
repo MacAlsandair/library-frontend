@@ -11,8 +11,8 @@ import { UserCabinetComponent } from './user-cabinet/user-cabinet.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'books', pathMatch: 'full'},
-  {path: 'books', component: BookCardComponent, canActivate: [AuthGuard], data: {role: 'USER'}},
-  {path: 'book/:id', component: BookEditModalComponent, canActivate: [AuthGuard], data: {role: 'USER'}},
+  {path: 'books', component: BookCardComponent, canActivate: [AuthGuard], data: {role: 'ROLE_USER'}},
+  {path: 'book/:id', component: BookEditModalComponent, canActivate: [AuthGuard], data: {role: 'ROLE_USER'}},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: SignupComponent},
   {path: '**', redirectTo: 'book-card'},
@@ -20,7 +20,7 @@ const routes: Routes = [
   { 
     path: 'user-cabinet', 
     component: UserCabinetComponent,
-    canActivate: [AuthGuard], data: {role: 'USER'}
+    canActivate: [AuthGuard], data: {role: 'ROLE_USER'}
   }
 ];
 

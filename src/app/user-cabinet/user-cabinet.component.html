@@ -1,9 +1,25 @@
-<div>
-  <form (ngSubmit)="changePassword()">
-    <input [(ngModel)]="oldPassword" type="password" placeholder="Old Password" name="oldPassword">
-    <input [(ngModel)]="newPassword" type="password" placeholder="New Password" name="newPassword">
-    <button type="submit">Change Password</button>
-  </form>
-
-  <button (click)="deleteUserAccount()">Delete Account</button>
+<div class="container mt-5">
+  <div class="d-flex justify-content-center">
+    <div class="card" style="width: 30rem;">
+      <div class="card-body">
+        <form (ngSubmit)="changePassword()">
+          <div class="mb-3">
+            <label class="form-label" for="oldPassword">Old Password</label>
+            <input class="form-control" [(ngModel)]="oldPassword" type="password" id="oldPassword" name="oldPassword" placeholder="Old Password">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="newPassword">New Password</label>
+            <input class="form-control" [(ngModel)]="newPassword" type="password" id="newPassword" name="newPassword" placeholder="New Password">
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Change Password</button>
+          </div>
+        </form>
+        <hr class="my-4">
+        <div class="d-grid gap-2">
+          <button (click)="deleteUserAccount()" type="button" class="btn btn-danger">Delete Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
