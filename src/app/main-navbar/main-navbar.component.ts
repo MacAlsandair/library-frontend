@@ -37,6 +37,10 @@ export class MainNavbarComponent {
     this.router.navigateByUrl("/user-cabinet");
   }
 
+  home() {
+    this.router.navigateByUrl("/");
+  }
+
   // public search(searchText: string): void {
   //   if (searchText) {
   //     this.searchService.announceSearch(searchText);
