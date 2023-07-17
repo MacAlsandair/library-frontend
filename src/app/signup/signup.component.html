@@ -21,74 +21,38 @@
             backdrop-filter: blur(30px);
             ">
           <div class="card-body p-5 shadow-5 text-center">
-            <h2 class="fw-bold mb-5">Sign up now</h2>
-            <form>
-              <!-- 2 column grid layout with text inputs for the first and last names -->
-              <div class="row">
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="form3Example1" class="form-control" />
-                    <label class="form-label" for="form3Example1">First name</label>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="form3Example2" class="form-control" />
-                    <label class="form-label" for="form3Example2">Last name</label>
-                  </div>
-                </div>
-              </div>
+            <div class="text-center">
+              <img src="assets/book-16 (1).svg"
+                style="width: 185px;" alt="logo">
+            </div>
 
-              <!-- Email input -->
+            <h2 class="fw-bold mb-5">Sign up</h2>
+            <p>{{message}}</p>
+
+            <form (ngSubmit)="onRegister()" #loginForm="ngForm">
+
               <div class="form-outline mb-4">
-                <input type="email" id="form3Example3" class="form-control" />
-                <label class="form-label" for="form3Example3">Email address</label>
+                <input type="text" id="username" name="username" class="form-control" [(ngModel)]="username" required />
+                <label for="username">Username</label>
               </div>
 
-              <!-- Password input -->
+
               <div class="form-outline mb-4">
-                <input type="password" id="form3Example4" class="form-control" />
-                <label class="form-label" for="form3Example4">Password</label>
+                <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password"
+                  required />
+                <label class="form-label" for="password">Password</label>
               </div>
 
-              <!-- Checkbox -->
-              <!-- <div class="form-check d-flex justify-content-center mb-4">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                <label class="form-check-label" for="form2Example33">
-                  Subscribe to our newsletter
-                </label>
-              </div> -->
+              <button class="btn btn-primary btn-block mb-4" type="submit" [disabled]="!loginForm.form.valid">Sign
+                up</button>
 
-              <!-- Submit button -->
-              <button type="submit" class="btn btn-primary btn-block mb-4">
-                Sign up
-              </button>
-
-              <!-- <div class="text-center">
-                <p>or sign up with:</p>
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-google"></i>
-                </button>
-
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-twitter"></i>
-                </button>
-
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-github"></i>
-                </button>
-              </div> -->
             </form>
           </div>
         </div>
       </div>
 
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <img src="assets/ficus.jpg" class="w-100 rounded-4 shadow-4"
+        <img src="assets/ficus.jpg" class="w-100 rounded-4 shadow-4 trimmed-height"
           alt="" />
       </div>
     </div>
@@ -97,7 +61,7 @@
 </section>
 <!-- Section: Design Block -->
 
-
+<!-- 
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -133,4 +97,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
