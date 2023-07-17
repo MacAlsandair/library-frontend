@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 import { FavoritesButtonComponent } from '../favorites-button/favorites-button.component';
 import { CommentsComponent } from '../comments/comments.component';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-book-details',
