@@ -32,11 +32,11 @@ export class BookService {
 
 
   public addBookToFavorites(bookId: number): Observable<void> {
-    return this.http.post<void>(`${this.apiServerUrl}/api/recommendations/add/${bookId}`, null)
+    return this.http.post<void>(`${this.apiServerUrl}/api/recommendations/add/${bookId}`, bookId, {responseType: 'text' as 'json'})
   }
 
   public deleteBookFromFavorites(bookId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/api/recommendations/remove/${bookId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/api/recommendations/remove/${bookId}`, {responseType: 'text' as 'json'});
   }
 
   public getPersonalRecommendations(): Observable<Book[]> {
