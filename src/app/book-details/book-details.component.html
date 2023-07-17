@@ -20,8 +20,8 @@
           <img *ngIf="book.coverImageUrl != null" [src]="book.coverImageUrl" alt="{{ book.name }} cover"
             class="book-cover">
           <div>
-            <h2 class="card-title">{{ book.name }}</h2>
-            <p class="card-text">{{ book.author }}</p>
+            <h1 class="card-title">{{ book.name }}</h1>
+            <h2 class="card-text">{{ book.author }}</h2>
             <p class="card-text">{{ book.yearOfPublication }}</p>
             <p class="card-text">{{ book.genre }}</p>
           </div>
