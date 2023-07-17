@@ -14,6 +14,7 @@ import { CommentsComponent } from '../comments/comments.component';
 export class BookDetailsComponent implements OnInit, OnDestroy {
   @Input() book!: Book;
   private unsubscribe$ = new Subject<void>();
+  isBookFavorite: boolean = false;
 
   constructor(
     private bookService: BookService,
@@ -22,6 +23,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getBook();
+    this.isBookInFavorites();
   }
 
   ngOnDestroy(): void {
@@ -30,12 +32,23 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   }
 
   addToFavorites(): void {
+    this.isBookFavorite = true;
     this.bookService.addBookToFavorites(this.book.id).pipe(takeUntil(this.unsubscribe$)).subscribe();
   }
 
   removeFromFavorites(): void {
+    this.isBookFavorite = false;
     this.bookService.deleteBookFromFavorites(this.book.id).pipe(takeUntil(this.unsubscribe$)).subscribe();
   }
+
+  isBookInFavorites(): void {
+    this.bookService.isBookInFavorites(this.book.id).pipe(takeUntil(this.unsubscribe$)).subscribe(
+      (isFavorite: boolean) => {
+        this.isBookFavorite = isFavorite;
+      }
+    );
+  }
+  
 
   private getBook(): void {
     const id = this.route.snapshot.paramMap.get('id');

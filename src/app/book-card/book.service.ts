@@ -28,6 +28,9 @@ export class BookService {
     return this.http.delete<void>(`${this.apiServerUrl}/api/book/delete/${bookId}`);
   }
 
+
+
+
   public addBookToFavorites(bookId: number): Observable<void> {
     return this.http.post<void>(`${this.apiServerUrl}/api/recommendations/add/${bookId}`, null)
   }
@@ -39,6 +42,12 @@ export class BookService {
   public getPersonalRecommendations(): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.apiServerUrl}/api/recommendations/personal`);
   }
+
+  public isBookInFavorites(bookId: number): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiServerUrl}/api/recommendations/checkFavorite/${bookId}`);
+  }
+
+
 
   public getBookById(bookId: number): Observable<Book> {
     return this.http.get<Book>(`${this.apiServerUrl}/api/book/find/${bookId}`);

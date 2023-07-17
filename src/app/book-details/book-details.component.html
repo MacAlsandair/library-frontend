@@ -25,10 +25,11 @@
           <p class="card-text">{{ book.genre }}</p>
         </div>
       </div>
-      <div class="d-grid gap-2 mt-3">
+      <!-- <div class="d-grid gap-2 mt-3">
         <button (click)="addToFavorites()" class="btn btn-primary">Add to Favorites</button>
         <button (click)="removeFromFavorites()" class="btn btn-secondary">Remove from Favorites</button>
-      </div>
+      </div> -->
+      <app-favorites-button [isFavorite]="isBookFavorite"></app-favorites-button>
       
       <app-comments [book]="book"></app-comments>
     </div>
