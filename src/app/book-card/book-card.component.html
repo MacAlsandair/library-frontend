@@ -1,34 +1,50 @@
-<form class="d-flex" role="search" *ngIf="authService.isLoggedIn()" (ngSubmit)="search(searchText)">
-  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchText"
-    name="searchText">
-  <button class="btn btn-outline-success" type="submit">Search</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto my-3">
+      <form class="d-flex" role="search" *ngIf="authService.isLoggedIn()" (ngSubmit)="search(searchText)">
+        <div class="input-group">
+          <input class="form-control rounded-pill me-2" type="search" placeholder="Search" aria-label="Search"
+            [(ngModel)]="searchText" name="searchText">
+          <button class="btn btn-primary rounded-pill" type="submit"><i class="bi bi-search"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-<div class="container" id="main-container">
-  <div class="row my-3">
-    <div *ngFor="let book of books" class="col=md-6 col-xl-3">
-      <div class="card text-center" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{book.name}}</h5>
-          <p class="card-text">{{book.author}}</p>
-          <button type="button" *ngIf="authService.isUserInRole('ROLE_ADMIN')" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Edit book</button>
-          <app-book-edit-modal [editableBook]="book" (updateBookEvent)="onUpdateBook($event)"></app-book-edit-modal>
-          <!-- <button class="btn btn-outline-danger" (click)="openDeleteModal(book)">Delete book</button> -->
-          <button type="button" *ngIf="authService.isUserInRole('ROLE_ADMIN')" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#deleteBookModal" data-bs-whatever="@getbootstrap">Delete book</button>
-          <app-book-delete-modal [deletedBook]="book" (deleteBookEvent)="onDeleteBook($event)"></app-book-delete-modal>
-          <!-- <button type="button" class="btn btn-secondary mx-2" data-bs-toggle="modal" data-bs-target="#addToFavorites" (click)="addToFavorites(book.id)" type="submit" data-bs-whatever="@getbootstrap">Add to favorites</button>
+
+
+  <div class="container" id="main-container">
+    <div class="row my-3">
+      <div *ngFor="let book of books" class="col=md-6 col-xl-3">
+        <div class="card text-center" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{book.name}}</h5>
+            <p class="card-text">{{book.author}}</p>
+            <button type="button" *ngIf="authService.isUserInRole('ROLE_ADMIN')" class="btn btn-primary mx-2"
+              data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Edit book</button>
+            <app-book-edit-modal [editableBook]="book" (updateBookEvent)="onUpdateBook($event)"></app-book-edit-modal>
+            <!-- <button class="btn btn-outline-danger" (click)="openDeleteModal(book)">Delete book</button> -->
+            <button type="button" *ngIf="authService.isUserInRole('ROLE_ADMIN')" class="btn btn-danger mx-2"
+              data-bs-toggle="modal" data-bs-target="#deleteBookModal" data-bs-whatever="@getbootstrap">Delete
+              book</button>
+            <app-book-delete-modal [deletedBook]="book"
+              (deleteBookEvent)="onDeleteBook($event)"></app-book-delete-modal>
+            <!-- <button type="button" class="btn btn-secondary mx-2" data-bs-toggle="modal" data-bs-target="#addToFavorites" (click)="addToFavorites(book.id)" type="submit" data-bs-whatever="@getbootstrap">Add to favorites</button>
           <button type="button" class="btn btn-secondary mx-2" data-bs-toggle="modal" data-bs-target="#addToFavorites" (click)="deleteFromFavorites(book.id)" type="submit" data-bs-whatever="@getbootstrap">Delete from favorites</button> -->
-          <app-favorites-button [bookId]="book.id"></app-favorites-button>
-          <button type="button" class="btn btn-primary mx-2" [routerLink]="['/book-details', book.id]">View More Details</button>
+            <app-favorites-button [bookId]="book.id"></app-favorites-button>
+            <button type="button" class="btn btn-primary mx-2" [routerLink]="['/book-details', book.id]">View More
+              Details</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div *ngIf="authService.isUserInRole('ROLE_ADMIN')" class="container">
+    <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#addBookModal"
+      data-bs-whatever="@getbootstrap">Add new books</button>
+    <app-book-add-modal (addBookEvent)="onAddBook($event)"></app-book-add-modal>
+  </div>
+
+
 </div>
-
-<div *ngIf="authService.isUserInRole('ROLE_ADMIN')" class="container">
-  <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#addBookModal" data-bs-whatever="@getbootstrap">Add new books</button>
-  <app-book-add-modal (addBookEvent)="onAddBook($event)"></app-book-add-modal>
-</div>
-
-
