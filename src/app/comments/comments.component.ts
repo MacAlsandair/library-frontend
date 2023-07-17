@@ -2,9 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../book-card/book';
 import { CommentsService } from './comments.service';
 import { Comment } from './comment';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-comments',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss']
 })

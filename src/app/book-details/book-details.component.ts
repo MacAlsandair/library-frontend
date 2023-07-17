@@ -4,9 +4,14 @@ import { Book } from '../book-card/book';
 import { BookService } from '../book-card/book.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { FavoritesButtonComponent } from '../favorites-button/favorites-button.component';
+import { CommentsComponent } from '../comments/comments.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book-details',
+  standalone: true,
+  imports: [FavoritesButtonComponent, CommentsComponent, CommonModule],
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.scss']
 })

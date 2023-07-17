@@ -42,10 +42,7 @@ import { FavoritesButtonComponent } from './favorites-button/favorites-button.co
     LoginComponent,
     SignupComponent,
     RecommendedBooksComponent,
-    BookDetailsComponent,
-    CommentsComponent,
-    UserCabinetComponent,
-    FavoritesButtonComponent
+    UserCabinetComponent
   ],
   imports: [
     BrowserModule,
