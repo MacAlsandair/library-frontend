@@ -1,37 +1,41 @@
-<div>
-  <h2>Comments for {{book.name}}</h2>
+<div class="container my-3">
+  <h2 class="mb-3">Comments for {{book.name}}</h2>
 
   <!-- Form for adding new comments -->
-  <form (ngSubmit)="addComment(commentText.value); commentText.value=''">
-    <input #commentText type="text" placeholder="Enter your comment" required>
-    <button type="submit">Add Comment</button>
+  <form (ngSubmit)="addComment(commentText.value); commentText.value=''" class="mb-3">
+    <div class="input-group">
+      <!-- <input #commentText class="form-control" type="text" placeholder="Enter your comment" required> -->
+      <textarea #commentText class="form-control" type="text" placeholder="Enter your comment" required rows="4"></textarea>
+      <button class="btn btn-outline-secondary" type="submit">Add Comment</button>
+    </div>
   </form>
 
   <!-- List of comments -->
-  <ul>
-    <li *ngFor="let comment of comments">
+  <ul class="list-group">
+    <li *ngFor="let comment of comments" class="list-group-item">
 
       <!-- Display comment details -->
-      <div>
-        <!-- <h3>{{ comment.author }} ({{ comment.timestamp }})</h3> -->
-        <h3>({{ comment.timeStamp }})</h3>
-        <p>{{ comment.commentText }}</p>
+      <div class="mb-3">
+        <h3 class="mb-1">({{ comment.timeStamp }})</h3>
+        <p class="mb-1">{{ comment.commentText }}</p>
       </div>
 
       <!-- Form for updating comment -->
-      <form *ngIf="comment.id === editingCommentId" 
-            (ngSubmit)="updateComment(comment.id, updatedCommentText); editingCommentId = null">
-        <input [(ngModel)]="updatedCommentText" name="updatedCommentText" required>
-        <button type="submit">Save</button>
-        <button type="button" (click)="editingCommentId = null">Cancel</button>
+      <form *ngIf="comment.id === editingCommentId"
+            (ngSubmit)="updateComment(comment.id, updatedCommentText); editingCommentId = null" class="d-flex justify-content-between">
+        <input [(ngModel)]="updatedCommentText" class="form-control" name="updatedCommentText" required>
+        <div>
+          <button class="btn btn-outline-success mx-1" type="submit">Save</button>
+          <button class="btn btn-outline-danger mx-1" type="button" (click)="editingCommentId = null">Cancel</button>
+        </div>
       </form>
 
       <!-- Buttons for editing and deleting comment -->
-      <div *ngIf="comment.id !== editingCommentId">
-        <button (click)="editingCommentId = comment.id">Edit</button>
-        <button (click)="deleteComment(comment)">Delete</button>
+      <div *ngIf="comment.id !== editingCommentId" class="mt-3">
+        <button class="btn btn-outline-primary mx-1" (click)="editingCommentId = comment.id">Edit</button>
+        <button class="btn btn-outline-danger mx-1" (click)="deleteComment(comment)">Delete</button>
       </div>
-      
+
     </li>
   </ul>
 </div>
