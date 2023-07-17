@@ -10,6 +10,9 @@ import { BookEditModalComponent } from '../book-edit-modal/book-edit-modal.compo
 import { BookAddModalComponent } from '../book-add-modal/book-add-modal.component';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { FavoritesButtonComponent } from '../favorites-button/favorites-button.component';
+import { AppModule } from '../app.module';
+
 
 @Component({
   selector: 'app-book-card',
@@ -17,7 +20,7 @@ import { AuthService } from '../auth/auth.service';
   imports: [CommonModule, 
     FormsModule, 
     HttpClientModule, NgbModule,
-    BookEditModalComponent, BookAddModalComponent, BookDeleteModalComponent, RouterModule],
+    BookEditModalComponent, BookAddModalComponent, BookDeleteModalComponent, RouterModule, FavoritesButtonComponent],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss']
 })

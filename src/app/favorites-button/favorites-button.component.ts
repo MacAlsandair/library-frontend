@@ -1,9 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { BookService } from '../book-card/book.service';
 import { Subject, takeUntil } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-favorites-button',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './favorites-button.component.html',
   styleUrls: ['./favorites-button.component.scss']
 })
