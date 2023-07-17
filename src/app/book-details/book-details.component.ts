@@ -1,10 +1,9 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from '../book-card/book';
 import { BookService } from '../book-card/book.service';
-import { switchMap, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { CommentsComponent } from '../comments/comments.component';
 
 @Component({
   selector: 'app-book-details',
@@ -12,7 +11,7 @@ import { CommentsComponent } from '../comments/comments.component';
   styleUrls: ['./book-details.component.scss']
 })
 export class BookDetailsComponent implements OnInit, OnDestroy {
-  @Input() book!: Book;
+  book!: Book;
   private unsubscribe$ = new Subject<void>();
   isBookFavorite: boolean = false;
 
@@ -23,7 +22,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getBook();
-    this.isBookInFavorites();
+    //this.isBookInFavorites();
   }
 
   ngOnDestroy(): void {
@@ -31,29 +30,20 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  addToFavorites(): void {
-    this.isBookFavorite = true;
-    this.bookService.addBookToFavorites(this.book.id).pipe(takeUntil(this.unsubscribe$)).subscribe();
-  }
-
-  removeFromFavorites(): void {
-    this.isBookFavorite = false;
-    this.bookService.deleteBookFromFavorites(this.book.id).pipe(takeUntil(this.unsubscribe$)).subscribe();
-  }
-
-  isBookInFavorites(): void {
-    this.bookService.isBookInFavorites(this.book.id).pipe(takeUntil(this.unsubscribe$)).subscribe(
-      (isFavorite: boolean) => {
-        this.isBookFavorite = isFavorite;
-      }
-    );
-  }
-  
+  // isBookInFavorites(): void {
+  //   this.bookService.isBookInFavorites(this.book.id).pipe(takeUntil(this.unsubscribe$)).subscribe(
+  //     (isFavorite: boolean) => {
+  //       this.isBookFavorite = isFavorite;
+  //     }
+  //   );
+  // }
 
   private getBook(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.bookService.getBookById(+id).pipe(takeUntil(this.unsubscribe$)).subscribe(book => this.book = book);
+      this.bookService.getBookById(+id).pipe(takeUntil(this.unsubscribe$)).subscribe(book => {
+        this.book = book;
+      });
     } else {
       console.error('Book id is not available');
     }
