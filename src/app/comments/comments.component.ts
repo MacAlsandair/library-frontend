@@ -4,6 +4,7 @@ import { CommentsService } from './comments.service';
 import { Comment } from './comment';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-comments',
@@ -20,7 +21,7 @@ export class CommentsComponent implements OnInit {
   updatedCommentText!: string;
 
 
-  constructor(private commentService: CommentsService) { }
+  constructor(private commentService: CommentsService, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.getCommentsByBook();

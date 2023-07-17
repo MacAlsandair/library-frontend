@@ -5,7 +5,8 @@
   <form (ngSubmit)="addComment(commentText.value); commentText.value=''" class="mb-3">
     <div class="input-group">
       <!-- <input #commentText class="form-control" type="text" placeholder="Enter your comment" required> -->
-      <textarea #commentText class="form-control" type="text" placeholder="Enter your comment" required rows="4"></textarea>
+      <textarea #commentText class="form-control" type="text" placeholder="Enter your comment" required
+        rows="4"></textarea>
       <button class="btn btn-outline-secondary" type="submit">Add Comment</button>
     </div>
   </form>
@@ -22,7 +23,8 @@
 
       <!-- Form for updating comment -->
       <form *ngIf="comment.id === editingCommentId"
-            (ngSubmit)="updateComment(comment.id, updatedCommentText); editingCommentId = null" class="d-flex justify-content-between">
+        (ngSubmit)="updateComment(comment.id, updatedCommentText); editingCommentId = null"
+        class="d-flex justify-content-between">
         <input [(ngModel)]="updatedCommentText" class="form-control" name="updatedCommentText" required>
         <div>
           <button class="btn btn-outline-success mx-1" type="submit">Save</button>
@@ -31,9 +33,12 @@
       </form>
 
       <!-- Buttons for editing and deleting comment -->
-      <div *ngIf="comment.id !== editingCommentId" class="mt-3">
-        <button class="btn btn-outline-primary mx-1" (click)="editingCommentId = comment.id">Edit</button>
-        <button class="btn btn-outline-danger mx-1" (click)="deleteComment(comment)">Delete</button>
+      <div *ngIf="authService.isUserInRole('ROLE_ADMIN')">
+        <div *ngIf="comment.id !== editingCommentId" class="mt-3">
+
+          <button class="btn btn-outline-primary mx-1" (click)="editingCommentId = comment.id">Edit</button>
+          <button class="btn btn-outline-danger mx-1" (click)="deleteComment(comment)">Delete</button>
+        </div>
       </div>
 
     </li>
