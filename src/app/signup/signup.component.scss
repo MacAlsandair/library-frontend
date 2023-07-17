@@ -7,3 +7,9 @@
     margin-right: 0;
   }
 }
+
+.trimmed-height {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
