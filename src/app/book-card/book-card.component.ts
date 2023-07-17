@@ -28,7 +28,7 @@ export class BookCardComponent {
   public books!: Book[];
   public editBook!: Book | null;
   public deleteBook!: Book | null;
-  public searchText!: string;
+  public searchText: string = "";
 
   constructor (public bookService: BookService, private modalService: NgbModal, public authService: AuthService) {}
 
