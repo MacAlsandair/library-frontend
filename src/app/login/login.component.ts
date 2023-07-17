@@ -35,4 +35,10 @@ export class LoginComponent {
                 error: (error) => this.snackBar.open(`Login failed: ${error.status}`, "OK")
             });
     }
+
+    signup() {
+
+        this.router.navigateByUrl("/registration");
+      }
+
 }
