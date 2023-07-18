@@ -41,7 +41,6 @@ import { FavoritesButtonComponent } from './favorites-button/favorites-button.co
     AppComponent,
     LoginComponent,
     SignupComponent,
-    RecommendedBooksComponent,
     UserCabinetComponent
   ],
   imports: [
@@ -64,6 +63,7 @@ import { FavoritesButtonComponent } from './favorites-button/favorites-button.co
     MatIconModule,
     MatListModule,
     CommonModule,
+    RecommendedBooksComponent,
     RouterModule.forRoot([])
   ],
   providers: [NgbActiveModal,

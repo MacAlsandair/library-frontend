@@ -4,10 +4,15 @@ import { BookService } from '../book-card/book.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
+import { FavoritesButtonComponent } from '../favorites-button/favorites-button.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-recommended-books',
   templateUrl: './recommended-books.component.html',
+  standalone: true,
+  imports: [FavoritesButtonComponent, CommonModule, RouterModule],
   styleUrls: ['./recommended-books.component.scss']
 })
 export class RecommendedBooksComponent {
